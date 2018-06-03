@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<activities>
+  <activity>
+    <name>Punching</name>
+    <attack>6</attack>
+    <defense>0</defense>
+    <magic>0</magic>
+    <strategy>0</strategy>
+    <showcreatureship>0</showcreatureship>
+    <comebackitude>1</comebackitude>
+  </activity>
+  <activity>
+    <name>Sparring</name>
+    <attack>3</attack>
+    <defense>3</defense>
+    <magic>0</magic>
+    <strategy>1</strategy>
+    <showcreatureship>0</showcreatureship>
+    <comebackitude>2</comebackitude>
+  </activity>
+  <activity>
+    <name>Alchemy</name>
+    <attack>0</attack>
+    <defense>0</defense>
+    <magic>6</magic>
+    <strategy>0</strategy>
+    <showcreatureship>1</showcreatureship>
+    <comebackitude>0</comebackitude>
+  </activity>
+</activities>
