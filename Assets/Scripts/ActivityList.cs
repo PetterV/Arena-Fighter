@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Xml.Linq;
 using UnityEngine;
 
@@ -17,9 +18,10 @@ public class ActivityList
 
 	private void LoadXml()
 	{
+		string filePath = Path.Combine (Application.streamingAssetsPath, "Character Data\\Activities.xml");
 		activityList =
 			(
-				from t in XDocument.Load("Activities.xml").Root.Elements("activity")
+				from t in XDocument.Load(filePath).Root.Elements("activity")
 				select new Activity
 				{
 					Name = (string)t.Element("name"),

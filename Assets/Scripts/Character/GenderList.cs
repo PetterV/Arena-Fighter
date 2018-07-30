@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Xml.Linq;
 using UnityEngine;
 
@@ -17,9 +18,10 @@ public class GenderList
 
 	private void LoadXml()
 	{
+		string filePath = Path.Combine (Application.streamingAssetsPath, "Character Data\\Genders.xml");
 		genderList =
 			(
-				from t in XDocument.Load("Genders.xml").Root.Elements("gender")
+				from t in XDocument.Load(filePath).Root.Elements("gender")
 				select new Gender
 				{
 					Name = (string)t.Element("name"),

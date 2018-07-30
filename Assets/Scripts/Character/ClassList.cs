@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Xml.Linq;
 using UnityEngine;
 
@@ -17,9 +18,10 @@ public class ClassList
 
 	private void LoadXml()
 	{
+		string filePath = Path.Combine (Application.streamingAssetsPath, "Character Data\\Classes.xml");
 		fClassList =
 			(
-				from t in XDocument.Load("Classes.xml").Root.Elements("class")
+				from t in XDocument.Load(filePath).Root.Elements("class")
 				select new Class
 				{
 					Name = (string)t.Element("name"),

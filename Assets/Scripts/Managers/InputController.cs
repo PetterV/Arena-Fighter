@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour {
 
@@ -56,5 +57,12 @@ public class InputController : MonoBehaviour {
 			}	
 		}
 
+		if (Input.GetKeyUp (KeyCode.Escape)) {
+			Application.Quit();
+		}
+
+		if (Input.GetKeyUp ("0")) {
+			SceneManager.LoadScene ("StartupScene");
+		}
 	}
 }

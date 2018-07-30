@@ -18,9 +18,10 @@ public class RaceList
 
 	private void LoadXml()
 	{
+		string filePath = Path.Combine (Application.streamingAssetsPath, "Character Data\\Races.xml");
 		raceList =
 			(
-				from t in XDocument.Load("Races.xml").Root.Elements("race")
+				from t in XDocument.Load(filePath).Root.Elements("race")
 				select new Race
 				{
 					RaceName = (string)t.Element("name"),
