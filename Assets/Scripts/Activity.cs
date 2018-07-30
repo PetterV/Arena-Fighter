@@ -12,7 +12,7 @@ public class Activity
 	public int ShowcreatureshipIncrease { get; set; }
 	public int ComebackitudeIncrease { get; set; }
 
-	public void AttendingActivityTick(Fighter f)
+	public void AttendingActivityTick(Character f)
 	{
 		f.AttackAdvance = f.AttackAdvance + AttackIncrease;
 		f.DefenseAdvance = f.DefenseAdvance + DefenseIncrease;

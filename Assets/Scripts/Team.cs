@@ -9,7 +9,7 @@ public class Team
 {
     public int TeamSize { get; set; }
     public string TeamName { get; set; }
-    public List<Fighter> Fighters { get; set; }
+    public List<Character> Fighters { get; set; }
     public bool PlayerTeam { get; set; }
 	public Manager TeamManager { get; set; }
     public int ThisMonthsCost { get; set; }
@@ -18,12 +18,14 @@ public class Team
 
     public Team(int fighterSlots)
     {
-        TeamManager = new Manager(this);
-        Fighters = new List<Fighter>();
+		Character character = new Character (WorldMethods.traitsPerFighter, WorldMethods.minLevelForFighters, WorldMethods.maxLevelForFighters);
+		Manager characterManager = character.MakeManager (this, character);
+		TeamManager = characterManager;
+        Fighters = new List<Character>();
         int fightersSet = 0;
         while (fightersSet < fighterSlots)
         {
-            Fighter fighterToAdd = GetRandomFighterForTeam();
+            Character fighterToAdd = GetRandomFighterForTeam();
             Fighters.Add(fighterToAdd);
 			fighterToAdd.Team = this;
             fighterToAdd.IsInTeam = true;
@@ -33,10 +35,10 @@ public class Team
         SetUniqueTeamName();
     }
 
-    private Fighter GetRandomFighterForTeam()
+    private Character GetRandomFighterForTeam()
     {
-        List<Fighter> availableFighters = new List<Fighter>();
-		foreach (Fighter f in GameObject.Find("GameController").GetComponent<GameController>().CurrentLeagueFighterDatabase.AllFighters)
+        List<Character> availableFighters = new List<Character>();
+		foreach (Character f in GameObject.Find("GameController").GetComponent<GameController>().CurrentLeagueFighterDatabase.AllFighters)
         {
             if (f.IsInTeam == false)
             {
@@ -44,7 +46,7 @@ public class Team
             }
         }
         int randomFighterNumber = GameObject.Find("GameController").GetComponent<GameController>().GameRandom.Next(availableFighters.Count);
-        Fighter fighterToAdd = availableFighters[randomFighterNumber];
+        Character fighterToAdd = availableFighters[randomFighterNumber];
         return fighterToAdd;
     }
 
@@ -77,7 +79,7 @@ public class Team
     public void PayDailyCosts()
     {
 		int todaysCost = 0;
-        foreach (Fighter f in Fighters)
+        foreach (Character f in Fighters)
         {
 			todaysCost = todaysCost + GameObject.Find("GameController").GetComponent<GameController>().GameRandom.Next(BasicValues.basicDailyCost, BasicValues.maxDailyCost + 1);
 

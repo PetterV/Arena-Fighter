@@ -10,7 +10,7 @@ public class Audience
 	public bool AudienceFrenzy { get; set; }
 	public float LackOfEnergyFactor { get; set; }//The value determining adjustments to Audience Appreciation based on lack of energy
 	public float ExceptionalFeatFactor { get; set; }
-	public Fighter AudienceFavour { get; set; }
+	public Character AudienceFavour { get; set; }
 
     public Audience()
     {
@@ -20,12 +20,12 @@ public class Audience
         AudienceAppreciation = 0;
     }
 
-    public void ChangeAudienceFavourTarget (Fighter newTarget)
+    public void ChangeAudienceFavourTarget (Character newTarget)
     {
         AudienceFavour = newTarget;
     }
 
-    public void RegularAudienceAppreciationAdjustment(Fighter attacker, Fighter defender, float damageDone, bool specialsUsed)
+    public void RegularAudienceAppreciationAdjustment(Character attacker, Character defender, float damageDone, bool specialsUsed)
     {
         float totalChange = 10f; //Any value entered here will serve as the base change of the method
         
@@ -46,7 +46,7 @@ public class Audience
         AudienceAppreciation = AudienceAppreciation + totalChange;
     }
 
-    public void SecondWindAppreciationIncrease(Fighter sWReceiver)
+    public void SecondWindAppreciationIncrease(Character sWReceiver)
     {
         float AudienceAppreciationBonus = 200f;
 

@@ -24,7 +24,7 @@ public class Date {
 		int daysIncreased = 0;
 		while (daysIncreased < daysToIncrease)
 		{
-			if (Day == 30)
+			if (Day == 31)
 			{
 				if (Month == 12)
 				{
