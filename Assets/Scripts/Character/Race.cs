@@ -33,77 +33,38 @@ public class Race
     public string[] GetFirstNames(Gender gender)
     {
         string[] firstNames;
-        if (RaceName == "Orc")
-        {
-            if (gender.NameUsage == "feminine")
-            {
-                firstNames = File.ReadAllLines("OrcFeminineFirstNames.txt");
-            }
-            else
-            {
-                firstNames = File.ReadAllLines("OrcMasculineFirstNames.txt");
-            }
-        }
-		else if (RaceName == "Elf")
-        {
-            if (gender.NameUsage == "feminine")
-            {
-                firstNames = File.ReadAllLines("ElvesFeminineFirstNames.txt");
-            }
-            else
-            {
-                firstNames = File.ReadAllLines("ElvesMasculineFirstNames.txt");
-            }
-        }
-		else if (RaceName == "Hobbit")
-        {
-            if (gender.NameUsage == "feminine")
-            {
-                firstNames = File.ReadAllLines("HobbitFeminineFirstNames.txt");
-            }
-            else
-            {
-                firstNames = File.ReadAllLines("HobbitMasculineFirstNames.txt");
-            }
-        }
-		else if (RaceName == "Human")
-        {
-            if (gender.NameUsage == "feminine")
-            {
-                firstNames = File.ReadAllLines("HumanFeminineFirstNames.txt");
-            }
-            else
-            {
-                firstNames = File.ReadAllLines("HumanMasculineFirstNames.txt");
-            }
-        }
+		string endPath = "Text Files\\" + RaceName + gender.NameUsage + "FirstNames.txt";
+		string filePath = Path.Combine (Application.streamingAssetsPath, endPath);
+
+		if (File.Exists(filePath)){
+			firstNames = File.ReadAllLines(filePath);
+		}
         //Fallback to human names
         else
         {
-            firstNames = File.ReadAllLines("HumanFeminineFirstNames.txt");
+			if (gender.NameUsage == "Masculine") {
+				firstNames = File.ReadAllLines("HumanMasculineFirstNames.txt");
+			}
+			else {
+				firstNames = File.ReadAllLines("HumanFeminineFirstNames.txt");	
+			}
         }
         return firstNames;
     }
     public string[] GetLastNames()
     {
         string[] lastNames;
-		if (RaceName == "Elf")
-        {
-            lastNames = File.ReadAllLines("ElvenLastNames.txt");
-        }
-		else if (RaceName == "Hobbit")
-        {
-            lastNames = File.ReadAllLines("HobbitLastNames.txt");
-        }
-		else if (RaceName == "Orc")
-        {
-            lastNames = File.ReadAllLines("OrcLastNames.txt");
-        }
-        //Fallback to human names
-        else
-        {
-            lastNames = File.ReadAllLines("HumanLastNames.txt");
-        }
+		string endPath = "Text Files\\" + RaceName + "LastNames.txt";
+		string filePath = Path.Combine (Application.streamingAssetsPath, endPath);
+
+		if (File.Exists(filePath)){
+			lastNames = File.ReadAllLines(filePath);
+		}
+		//Fallback to human names
+		else
+		{
+			lastNames = File.ReadAllLines("HumanLastNames.txt");
+		}
         return lastNames;
     }
 }

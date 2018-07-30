@@ -18,9 +18,10 @@ public class TraitList
 
 	private void LoadXml()
 	{
+		string filePath = Path.Combine (Application.streamingAssetsPath, "Character Data\\PersonalityTraits.xml");
 		traitList =
 			(
-				from t in XDocument.Load("PersonalityTraits.xml").Root.Elements("trait")
+				from t in XDocument.Load(filePath).Root.Elements("trait")
 				select new Trait
 				{
 					traitName = (string)t.Element("name"),

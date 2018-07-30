@@ -6,9 +6,12 @@ public class TeamListContent : MonoBehaviour {
 
 	public GameObject teamButton;
 	public List<Team> teams;
+	public bool ListPopulated = false;
 
 	public void SetUp (List<Team> teams) {
-		PopulateList (teams);	
+		if (!ListPopulated) {
+			PopulateList (teams);
+		}	
 	}
 
 	void PopulateList (List<Team> teams) {
@@ -22,5 +25,11 @@ public class TeamListContent : MonoBehaviour {
 			newButton.SetActive(true);
 			newButtonInfo.UpdateTeamButtonInfo();
 		}
+		ListPopulated = true;
+	}
+
+	public void ClearList(){
+		//TODO: Add functions here to destroy all relevant buttons
+		ListPopulated = false;
 	}
 }

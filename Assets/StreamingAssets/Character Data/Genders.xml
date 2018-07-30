@@ -3,7 +3,7 @@
   <gender>
     <name>female</name>
     <nameCap>Female</nameCap>
-    <nameUsage>feminine</nameUsage>
+    <nameUsage>Feminine</nameUsage>
     <SheHe>she</SheHe>
     <SheHeCap>She</SheHeCap>
     <HerHim>her</HerHim>
@@ -18,7 +18,7 @@
   <gender>
     <name>male</name>
     <nameCap>Male</nameCap>
-    <nameUsage>masculine</nameUsage>
+    <nameUsage>Masculine</nameUsage>
     <SheHe>he</SheHe>
     <SheHeCap>He</SheHeCap>
     <HerHim>him</HerHim>
@@ -33,7 +33,7 @@
   <gender>
     <name>nonbinary</name>
     <nameCap>Nonbinary</nameCap>
-    <nameUsage>feminine</nameUsage>
+    <nameUsage>Feminine</nameUsage>
     <SheHe>they</SheHe>
     <SheHeCap>They</SheHeCap>
     <HerHim>them</HerHim>
@@ -48,7 +48,7 @@
   <gender>
     <name>nonbinary</name>
     <nameCap>Nonbinary</nameCap>
-    <nameUsage>masculine</nameUsage>
+    <nameUsage>Masculine</nameUsage>
     <SheHe>they</SheHe>
     <SheHeCap>They</SheHeCap>
     <HerHim>them</HerHim>
