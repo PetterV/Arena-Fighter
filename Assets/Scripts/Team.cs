@@ -52,7 +52,8 @@ public class Team
 
     private void SetUniqueTeamName()
     {
-        string[] allTeamNamesArray = File.ReadAllLines("TeamNames.txt");
+		string filePath = Path.Combine (Application.streamingAssetsPath, "Text Files\\TeamNames.txt");
+		string[] allTeamNamesArray = File.ReadAllLines(filePath);
         List<string> allTeamNames = new List<string>();
         allTeamNames = allTeamNamesArray.ToList<string>();
 		List<string> usedTeamNames = GameObject.Find("GameController").GetComponent<GameController>().TeamManager.UsedTeamNames;

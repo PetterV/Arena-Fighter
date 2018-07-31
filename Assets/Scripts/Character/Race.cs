@@ -43,11 +43,12 @@ public class Race
         else
         {
 			if (gender.NameUsage == "Masculine") {
-				firstNames = File.ReadAllLines("HumanMasculineFirstNames.txt");
+				filePath = Path.Combine (Application.streamingAssetsPath, "Text Files\\HumanMasculineFirstNames.txt");
 			}
 			else {
-				firstNames = File.ReadAllLines("HumanFeminineFirstNames.txt");	
+				filePath = Path.Combine (Application.streamingAssetsPath, "Text Files\\HumanFeminineFirstNames.txt");
 			}
+			firstNames = File.ReadAllLines(filePath);	
         }
         return firstNames;
     }
@@ -63,7 +64,8 @@ public class Race
 		//Fallback to human names
 		else
 		{
-			lastNames = File.ReadAllLines("HumanLastNames.txt");
+			filePath = Path.Combine (Application.streamingAssetsPath, "Text Files\\HumanLastNames.txt");
+			lastNames = File.ReadAllLines(filePath);
 		}
         return lastNames;
     }
