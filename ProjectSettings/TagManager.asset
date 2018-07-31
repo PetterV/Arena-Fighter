@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1563162509
+    locked: 0
+  - name: UI mainfield
+    uniqueID: 2128955457
+    locked: 0
+  - name: UI 1
+    uniqueID: 3919099327
+    locked: 0
+  - name: Tooltips
+    uniqueID: 3081338409
+    locked: 0
