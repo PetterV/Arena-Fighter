@@ -62,6 +62,17 @@ public class Fight1v1
 		}
 	}
 
+    public void Strike(Character attacker, Character defender)
+    {
+        FightTick(attacker, defender, Audience);
+        Audience.RegularAudienceAppreciationAdjustment(attacker, defender, LastDamageDone, false);
+        CheckForVictory1v1(f1, f2);
+
+        string attackReport = f1.FirstName + " did " + f1damageToReport + " damage to " + f2.FirstName;
+        fightPanel.UpdateTextLog(attackReport);
+        f1damageToReport = 0;
+    }
+
 	public void FightRoundTick(){
 		FightTick (f1, f2, Audience);
 		Audience.RegularAudienceAppreciationAdjustment (f1, f2, LastDamageDone, false);
@@ -139,9 +150,6 @@ public class Fight1v1
 
 	public void FightTick (Character attacker, Character defender, Audience audience)
 	{
-		//TODO_P: Find a good location for this. One of the GameControl managers?
-		float baseDamage = 20;
-		float baseEnergyCost = 100;
 
 		if (attacker.CurrentHealth / attacker.MaxHealth < 0.33 && !attacker.SecondWindActive) //Chance of receiving a Second Wind
 		{
@@ -153,12 +161,12 @@ public class Fight1v1
 
 		//If no special move was used this turn, cause normal damage
 		//TODO_P: Find solution for this making characters do no damage on the first turn.
-		if(attacker.TurnsSinceLastSpecialMove > 0)
+		if(attacker.TurnsSinceLastSpecialMove > 0 || TickCount == 0)
 		{
-			StandardAttack(attacker, defender, this, baseDamage, baseEnergyCost);
+			StandardAttack(attacker, defender, this, BasicValues.baseDamage, BasicValues.basicStrikeEnergyCost);
 		}
 		attacker.TurnsSinceLastSpecialMove++;
-	}
+    }
 
 	public string SetTitleBasedOnType(Character fighter, bool challenger, string fightType)
 	{
@@ -271,7 +279,9 @@ public class Fight1v1
 			damageToDeal = damageToDeal * secondWindDamageFactor;
 		}
 
-		//TODO: Some weird damage factor number goes here, in case that is a better way to balance the power curve than increasing health
+        //TODO: Some weird damage factor number goes here, in case that is a better way to balance the power curve than increasing health
+        float randomFactor = 5f;
+        damageToDeal = damageToDeal * randomFactor;
 
 		//Modifiers
 		if (PlayerWatchingFight){
@@ -287,7 +297,7 @@ public class Fight1v1
 				fightPanel.UpdateTextLog ("Power Strike caused " + damageToDeal + " damage!");
 			} else {
 				if (attacker == f1) {
-					f1damageToReport = f1damageToReport + damageToDeal;
+                    f1damageToReport = f1damageToReport + damageToDeal;
 				} else {
 					f2damageToReport = f2damageToReport + damageToDeal;
 				}

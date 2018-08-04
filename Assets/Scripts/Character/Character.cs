@@ -24,6 +24,8 @@ public class Character //The character class
 	public Character CurrentTarget { get; set; }
 	public float MaxEnergy { get; set; }
 	public float CurrentEnergy { get; set; }
+    public float FullCooldown { get; set; }
+    public float CurrentCooldown { get; set; }
 	public bool SecondWindActive { get; set; }
 	public int SecondWindEnergyGain { get; set; }
 	public bool UsedSpecialMoveThisTurn { get; set; }
@@ -51,6 +53,7 @@ public class Character //The character class
 	public FighterListButton FighterListButton { get; set; }
 	public bool IsManager = false;
 	public CharacterRelations Relations;
+    public CharacterFlags CharacterFlags;
 
 	public Character(int maxTraits, int minLevel, int maxLevel)
     {
@@ -94,6 +97,7 @@ public class Character //The character class
         ExperiencePoints = 0;
 
 		Relations = new CharacterRelations ();
+        CharacterFlags = new CharacterFlags();
     }
 
     public void SetAllStats()
@@ -106,6 +110,7 @@ public class Character //The character class
         SetComebackitude();
         SetMaxHealth();
         SetMaxEnergy();
+        SetCooldownValue();
     }
 
     public void PrintStats()
@@ -116,6 +121,7 @@ public class Character //The character class
 		MonoBehaviour.print("Strategy: " + Strategy);
 		MonoBehaviour.print("Showcreatureship: " + Showcreatureship);
 		MonoBehaviour.print("Comebackitude: " + Comebackitude);
+        MonoBehaviour.print("Cooldown: " + FullCooldown);
     }
 
     public void SetAttack()
@@ -221,6 +227,15 @@ public class Character //The character class
 
         float maxEnergyBonus = traitMaxEnergyBonus + Race.EnergyBonus + MyClass.Energy + GameObject.Find("GameController").GetComponent<GameController>().GameRandom.Next(RandomEnergyBonusRange);
         MaxEnergy = maxEnergyBaseValue + maxEnergyBonus;
+    }
+
+    public void SetCooldownValue()
+    {
+        float tempCooldown = BasicValues.baseCooldown;
+        float modifiedStrategy = (float)Strategy * BasicValues.strategyCooldownFactor;
+        tempCooldown = tempCooldown - modifiedStrategy;
+
+        FullCooldown = tempCooldown;
     }
 
     public void SetRandomFightMoneyCut()

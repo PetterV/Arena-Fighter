@@ -52,6 +52,12 @@ public class WorldMethods
 			quarterTick++;
 		}
 
+        //General daily handling for all characters
+        foreach (Character c in GameController.CharacterDatabase.AllCharacters)
+        {
+            c.CharacterFlags.CheckFlagDurations();
+        }
+
 		foreach (Team t in GameController.TeamManager.TeamsInLeague)
 		{
 			t.PayDailyCosts();

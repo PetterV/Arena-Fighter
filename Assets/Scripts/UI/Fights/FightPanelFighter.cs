@@ -18,6 +18,7 @@ public class FightPanelFighter : MonoBehaviour {
 	public Text teamName;
 	public Image healthBar;
 	public Image energyBar;
+    public Image cooldownImage;
 	public bool extraDamageModifier = false;
 
 	public void UpdatePanelInfo(){
@@ -44,7 +45,12 @@ public class FightPanelFighter : MonoBehaviour {
 		if (energyBar != null) {
 			energyBar.fillAmount = fighter.CurrentEnergy / fighter.MaxEnergy;
 		}
-	}
+        if (cooldownImage.isActiveAndEnabled)
+        {
+            cooldownImage.fillAmount = fighter.CurrentCooldown / fighter.FullCooldown;
+        }
+
+    }
 
 	public void UpdateHealthAndEnergy(){
 		/*health.text = fighter.CurrentHealth.ToString();

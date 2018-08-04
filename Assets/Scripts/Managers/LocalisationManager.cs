@@ -10,13 +10,14 @@ public class LocalisationManager : MonoBehaviour {
 	private Dictionary<string, string> localisedText;
 	private bool isReady = false;
 	private string missingTextString = "No text found for this key in the current language!";
+    private int totalKeys = 0;
 
 	void Awake ()
 	{
 		if (instance == null) {
 			instance = this;
 			LoadLocalisedText ("localisation_en.json");
-		} else if (instance != this) {
+        } else if (instance != this) {
 			Destroy (gameObject);
 		}
 
@@ -33,8 +34,10 @@ public class LocalisationManager : MonoBehaviour {
 			LocalisationData loadedData = JsonUtility.FromJson<LocalisationData> (dataAsJson);
 
 			for (int i = 0; i < loadedData.items.Length; i++) {
-				localisedText.Add (loadedData.items [i].key, loadedData.items [i].value);
+				localisedText.Add (loadedData.items [totalKeys + i].key, loadedData.items [totalKeys + i].value);
 			}
+
+            totalKeys = localisedText.Count - 1;
 
 			Debug.Log ("Loaded localisation. Database contains: " + localisedText.Count + " entries.");
 		} else {

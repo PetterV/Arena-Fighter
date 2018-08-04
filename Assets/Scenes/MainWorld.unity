@@ -614,6 +614,75 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 33742497}
   m_CullTransparentMesh: 0
+--- !u!1 &47704193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 47704194}
+  - component: {fileID: 47704196}
+  - component: {fileID: 47704195}
+  m_Layer: 5
+  m_Name: CurrentCooldownImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &47704194
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 47704193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1108605843}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 13.85, y: -222}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &47704195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 47704193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.9704427, b: 0.3254717, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 0
+  m_FillOrigin: 2
+--- !u!222 &47704196
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 47704193}
+  m_CullTransparentMesh: 0
 --- !u!1 &56354390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2301,7 +2370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00005820922, y: 0.00006237605}
+  m_AnchoredPosition: {x: -0.00005820922, y: 0.000086135165}
   m_SizeDelta: {x: -7.200012, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &190119980
@@ -3134,6 +3203,75 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 269960664}
+  m_CullTransparentMesh: 0
+--- !u!1 &271359515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 271359516}
+  - component: {fileID: 271359518}
+  - component: {fileID: 271359517}
+  m_Layer: 5
+  m_Name: CurrentCooldownImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &271359516
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 271359515}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0003548, y: 1.0003548, z: 1.0003548}
+  m_Children: []
+  m_Father: {fileID: 1466546584}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -25.509624, y: -222.08296}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &271359517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 271359515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.9704427, b: 0.3254717, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 2
+--- !u!222 &271359518
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 271359515}
   m_CullTransparentMesh: 0
 --- !u!1 &271808656
 GameObject:
@@ -5768,6 +5906,7 @@ MonoBehaviour:
   teamName: {fileID: 557536367}
   healthBar: {fileID: 360618032}
   energyBar: {fileID: 1429125254}
+  cooldownImage: {fileID: 0}
   extraDamageModifier: 0
 --- !u!114 &603231730
 MonoBehaviour:
@@ -8101,7 +8240,6 @@ MonoBehaviour:
   fighterBox1: {fileID: 1108605846}
   fighterBox2: {fileID: 1466546585}
   textLog: {fileID: 493151754}
-  waitPerTick: 0.2
 --- !u!1 &845323434
 GameObject:
   m_ObjectHideFlags: 0
@@ -8134,7 +8272,7 @@ RectTransform:
   m_Father: {fileID: 1294096909}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.00000011920929}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.9999999}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -8212,7 +8350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 570.1998, y: 427.84998}
+  m_AnchoredPosition: {x: 695, y: -552}
   m_SizeDelta: {x: -1531, y: -887.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854379534
@@ -10262,6 +10400,7 @@ RectTransform:
   - {fileID: 1074826859}
   - {fileID: 60083247}
   - {fileID: 2099140619}
+  - {fileID: 47704194}
   m_Father: {fileID: 832367884}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10326,6 +10465,7 @@ MonoBehaviour:
   teamName: {fileID: 75627417}
   healthBar: {fileID: 1074826860}
   energyBar: {fileID: 2099140620}
+  cooldownImage: {fileID: 47704195}
   extraDamageModifier: 0
 --- !u!1 &1108810837
 GameObject:
@@ -14102,6 +14242,7 @@ RectTransform:
   - {fileID: 360618031}
   - {fileID: 1482609231}
   - {fileID: 1429125253}
+  - {fileID: 271359516}
   m_Father: {fileID: 832367884}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14132,6 +14273,7 @@ MonoBehaviour:
   teamName: {fileID: 1491673900}
   healthBar: {fileID: 360618032}
   energyBar: {fileID: 1429125254}
+  cooldownImage: {fileID: 271359517}
   extraDamageModifier: 0
 --- !u!114 &1466546586
 MonoBehaviour:
@@ -16928,7 +17070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008882933, y: 0.000010813043}
+  m_AnchoredPosition: {x: -0.00008882933, y: -0.000004894455}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1772324670
@@ -18138,8 +18280,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 845323436}
   m_HandleRect: {fileID: 845323435}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 0.9999998
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

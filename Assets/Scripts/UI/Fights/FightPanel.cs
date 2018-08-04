@@ -9,9 +9,9 @@ public class FightPanel : MonoBehaviour {
 	public FightPanelFighter fighterBox2;
 	public Fight1v1 Fight;
 	public Text textLog;
-	float timeWaitedForTick;
+	//float timeWaitedForTick;
 	//Determines the speed of fights
-	public float waitPerTick = 0.1f;
+	//public float waitPerTick = 1.0f;
 	InputController inputController;
 	GameController gameController;
 
@@ -51,11 +51,26 @@ public class FightPanel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Fight.FightOver == false) {
-			timeWaitedForTick += Time.deltaTime;
+            fighterBox1.fighter.CurrentCooldown -= Time.deltaTime;
+            if(fighterBox1.fighter.CurrentCooldown <= 0)
+            {
+                Fight.Strike(fighterBox1.fighter, fighterBox2.fighter);
+                fighterBox1.fighter.CurrentCooldown = fighterBox1.fighter.FullCooldown;
+            }
+
+            fighterBox2.fighter.CurrentCooldown -= Time.deltaTime;
+            if (fighterBox2.fighter.CurrentCooldown <= 0)
+            {
+                Fight.Strike(fighterBox2.fighter, fighterBox1.fighter);
+                fighterBox2.fighter.CurrentCooldown = fighterBox2.fighter.FullCooldown;
+            }
+
+
+            /*timeWaitedForTick += Time.deltaTime;
 			if (timeWaitedForTick > waitPerTick && !Fight.inputController.pauseFight) {
 				Fight.FightRoundTick ();
 				timeWaitedForTick = 0;
-			}
+			}*/
 		}
 	}
 
