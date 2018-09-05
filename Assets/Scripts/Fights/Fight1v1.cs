@@ -342,7 +342,7 @@ public class Fight1v1
 		{
 			fighter.ActivateSecondWind();
 			if (PlayerWatchingFight) {
-				string secondWindActivation = fighter.FirstName + " has activated " + fighter.MyGender.HerHis + " Second Wind!";
+				string secondWindActivation = fighter.FirstName + " has activated " + fighter.Gender.HerHis + " Second Wind!";
 				fightPanel.UpdateTextLog (secondWindActivation);
 			}
 		}

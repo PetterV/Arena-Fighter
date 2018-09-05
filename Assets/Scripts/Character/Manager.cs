@@ -27,7 +27,7 @@ public class Manager
     private void SetUp()
     {
 		Race = ManagerCharacter.Race;
-		Gender = ManagerCharacter.MyGender;
+		Gender = ManagerCharacter.Gender;
 		FirstName = ManagerCharacter.FirstName;
 		LastName = ManagerCharacter.LastName;
     }

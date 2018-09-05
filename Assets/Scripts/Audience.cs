@@ -10,6 +10,8 @@ public class Audience
 	public bool AudienceFrenzy { get; set; }
 	public float LackOfEnergyFactor { get; set; }//The value determining adjustments to Audience Appreciation based on lack of energy
 	public float ExceptionalFeatFactor { get; set; }
+    public float LastIncrease = 0f;
+    public string LastIncreaseSource = "Hype before fight";
 	public Character AudienceFavour { get; set; }
 
     public Audience()
@@ -43,6 +45,9 @@ public class Audience
             totalChange = totalChange * ExceptionalFeatFactor;
         }
 
+        LastIncrease = totalChange;
+        LastIncreaseSource = "Strike by " + attacker.FirstName;
+
         AudienceAppreciation = AudienceAppreciation + totalChange;
     }
 
@@ -51,6 +56,10 @@ public class Audience
         float AudienceAppreciationBonus = 200f;
 
         AudienceAppreciation = AudienceAppreciation + AudienceAppreciationBonus;
+
+        //TODO: Add notifications that this is happening to the fight screen
+        LastIncrease = AudienceAppreciationBonus;
+        LastIncreaseSource = sWReceiver.FirstName + " received Second Wind!";
 
         //TODO_P: Make this a random chance, rather than guaranteed. Maybe based on Comebackitude?
         AudienceFavour = sWReceiver;

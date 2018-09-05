@@ -19,6 +19,12 @@ public class Character //The character class
 	public int Strategy { get; set; }
 	public int Showcreatureship { get; set; }
 	public int Comebackitude { get; set; }
+    public int ModifiedAttack { get; set; }
+    public int ModifiedDefense { get; set; }
+    public int ModifiedMagic { get; set; }
+    public int ModifiedStrategy { get; set; }
+    public int ModifiedShocreatureship { get; set; }
+    public int ModifiedComebackitude { get; set; }
 	public float MaxHealth { get; set; }
 	public float CurrentHealth { get; set; }
 	public Character CurrentTarget { get; set; }
@@ -46,7 +52,7 @@ public class Character //The character class
 	public int ComebackitudeAdvance { get; set; }
 	public Activity CurrentActivity { get; set; }
 	public int SkillAdvanceThreshold { get; set; }
-	public Gender MyGender { get; set; }
+	public Gender Gender { get; set; }
 	public bool IsInTeam { get; set; }
 	public Team Team { get; set; }
 	public int FightMoneyCut { get; set; }
@@ -54,6 +60,8 @@ public class Character //The character class
 	public bool IsManager = false;
 	public CharacterRelations Relations;
     public CharacterFlags CharacterFlags;
+    public InjuryContainer Injuries = new InjuryContainer();
+    public ModifierContainer Modifiers = new ModifierContainer();
 
 	public Character(int maxTraits, int minLevel, int maxLevel)
     {
@@ -294,15 +302,15 @@ public class Character //The character class
         int genderRoll = GameObject.Find("GameController").GetComponent<GameController>().GameRandom.Next(100);
         if(genderRoll < 6)
         {
-            MyGender = allGenders.FirstOrDefault(o => o.Name == "nonbinary");
+            Gender = allGenders.FirstOrDefault(o => o.Name == "nonbinary");
         }
         else if (genderRoll < 53)
         {
-            MyGender = allGenders.FirstOrDefault(o => o.Name == "male");
+            Gender = allGenders.FirstOrDefault(o => o.Name == "male");
         }
         else
         {
-            MyGender = allGenders.FirstOrDefault(o => o.Name == "female");
+            Gender = allGenders.FirstOrDefault(o => o.Name == "female");
         }
     }
 
@@ -312,7 +320,7 @@ public class Character //The character class
         string[] lastNameList = new string[0];
 
 
-        firstNameList = Race.GetFirstNames(MyGender);
+        firstNameList = Race.GetFirstNames(Gender);
         lastNameList = Race.GetLastNames();
 
         int totalFirstNames = firstNameList.Length;
@@ -429,6 +437,11 @@ public class Character //The character class
             LevelUp();
             levelsDone++;
         }
+    }
+
+    public void CalculateRealStats()
+    {
+        //TODO: Add calculation of all stats here
     }
 
     public void QuarterTickRecovery()

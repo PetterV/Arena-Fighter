@@ -10,13 +10,13 @@ public class LocalisationManager : MonoBehaviour {
 	private Dictionary<string, string> localisedText;
 	private bool isReady = false;
 	private string missingTextString = "No text found for this key in the current language!";
-    private int totalKeys = 0;
 
 	void Awake ()
 	{
 		if (instance == null) {
 			instance = this;
-			LoadLocalisedText ("localisation_en.json");
+            LoadAllFiles();
+            isReady = true;
         } else if (instance != this) {
 			Destroy (gameObject);
 		}
@@ -24,27 +24,35 @@ public class LocalisationManager : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 	}
 
+
+    void LoadAllFiles()
+    {
+        LoadLocalisedText("Localisation Files/localisation_en.json");
+        LoadLocalisedText("Localisation Files/tooltip_localisation_en.json");
+    }
+
 	public void LoadLocalisedText(string fileName)
 	{
-		localisedText = new Dictionary<string, string> ();
-		string filePath = Path.Combine (Application.streamingAssetsPath, fileName);
+        //TODO: Create new dictionary if language has changed... (Separate method to handle language change?)
+        if (localisedText == null)
+        {
+            localisedText = new Dictionary<string, string>();
+        }
+
+        string filePath = Path.Combine (Application.streamingAssetsPath, fileName);
 
 		if (File.Exists (filePath)) {
 			string dataAsJson = File.ReadAllText (filePath);
 			LocalisationData loadedData = JsonUtility.FromJson<LocalisationData> (dataAsJson);
 
 			for (int i = 0; i < loadedData.items.Length; i++) {
-				localisedText.Add (loadedData.items [totalKeys + i].key, loadedData.items [totalKeys + i].value);
+				localisedText.Add (loadedData.items[i].key, loadedData.items[i].value);
 			}
-
-            totalKeys = localisedText.Count - 1;
-
+            
 			Debug.Log ("Loaded localisation. Database contains: " + localisedText.Count + " entries.");
 		} else {
 			Debug.LogError ("Cannot find localisation file for language!");
 		}
-
-		isReady = true;
 	}
 
 	public string GetLocalisedValue(string key){

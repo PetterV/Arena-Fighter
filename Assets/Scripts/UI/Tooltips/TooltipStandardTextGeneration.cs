@@ -14,8 +14,9 @@ public class TooltipStandardTextGeneration : MonoBehaviour {
         locManager = GameObject.Find("LocalisationManager").GetComponent<LocalisationManager>();
         foreach (string k in keys)
         {
-            finalTTMessages.Add(locManager.GetLocalisedValue(k));
-            Debug.Log("Added " + locManager.GetLocalisedValue(k));
+            string localisedKey = locManager.GetLocalisedValue(k);
+            localisedKey = TextCommandHandler.CheckForTextCommands(localisedKey);
+            finalTTMessages.Add(localisedKey);
         }
         gameObject.GetComponent<TooltipRegistration>().ttMessages = finalTTMessages;
     }

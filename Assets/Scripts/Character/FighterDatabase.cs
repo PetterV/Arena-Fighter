@@ -27,7 +27,7 @@ public class FighterDatabase
 			MonoBehaviour.print("  " + t.TeamName + ", managed by the " + t.TeamManager.Race.RaceName + " " + t.TeamManager.FirstName + " " + t.TeamManager.LastName);
             foreach (Character f in t.Fighters)
             {
-				MonoBehaviour.print("    " + f.FirstName + " " + f.LastName + ", a " + f.Age + " year old " + f.MyGender.Name + " " + f.Race.RaceName + " " + f.MyClass.Name + ", (Level " + f.Level + ", Fight Money Cut: " + f.FightMoneyCut + "%)");
+				MonoBehaviour.print("    " + f.FirstName + " " + f.LastName + ", a " + f.Age + " year old " + f.Gender.Name + " " + f.Race.RaceName + " " + f.MyClass.Name + ", (Level " + f.Level + ", Fight Money Cut: " + f.FightMoneyCut + "%)");
             }
         }
     }

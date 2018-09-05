@@ -8,6 +8,7 @@ public class ClosePanelButton : MonoBehaviour {
 	public GameObject PanelToClose;
 
 	public void ClosePanel(){
+        gameObject.GetComponent<TooltipRegistration>().CloseTooltip();
 		PanelToClose.SetActive (false);
 	}
 

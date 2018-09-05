@@ -45,5 +45,14 @@ public class TooltipRegistration : MonoBehaviour, IPointerEnterHandler, IPointer
         }
         Tooltip.GetComponent<TooltipHandling>().Close();
     }
+
+    public void CloseTooltip()
+    {
+        foreach (GameObject box in newTextBoxes)
+        {
+            Destroy(box);
+        }
+        Tooltip.GetComponent<TooltipHandling>().Close();
+    }
 }
 

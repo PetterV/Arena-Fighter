@@ -9,6 +9,11 @@ public class FightPanel : MonoBehaviour {
 	public FightPanelFighter fighterBox2;
 	public Fight1v1 Fight;
 	public Text textLog;
+
+    public Text audienceAppreciationTotal;
+    public Text audienceAppreciationLastIncrease;
+    public Text audienceAppreciationLastIncreaseSource;
+    private string LastIncreaseString;
 	//float timeWaitedForTick;
 	//Determines the speed of fights
 	//public float waitPerTick = 1.0f;
@@ -71,6 +76,11 @@ public class FightPanel : MonoBehaviour {
 				Fight.FightRoundTick ();
 				timeWaitedForTick = 0;
 			}*/
+
+            //Audience appreciation display
+            audienceAppreciationTotal.text = Fight.Audience.AudienceAppreciation.ToString();
+            audienceAppreciationLastIncrease.text = Fight.Audience.LastIncrease.ToString();
+            audienceAppreciationLastIncreaseSource.text = Fight.Audience.LastIncreaseSource;
 		}
 	}
 
