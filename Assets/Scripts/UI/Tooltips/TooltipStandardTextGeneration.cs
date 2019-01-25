@@ -15,7 +15,8 @@ public class TooltipStandardTextGeneration : MonoBehaviour {
         foreach (string k in keys)
         {
             string localisedKey = locManager.GetLocalisedValue(k);
-            localisedKey = TextCommandHandler.CheckForTextCommands(localisedKey);
+            //TODO: This line is supposed to send the string to the localisation special command handler
+            //localisedKey = TextCommandHandler.CheckForTextCommands(localisedKey);
             finalTTMessages.Add(localisedKey);
         }
         gameObject.GetComponent<TooltipRegistration>().ttMessages = finalTTMessages;

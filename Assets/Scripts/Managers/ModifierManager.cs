@@ -46,7 +46,7 @@ public class ModifierManager : MonoBehaviour {
         }
         else
         {
-            Debug.LogError("Could not find any modifier files!");
+            Debug.LogWarning("Could not find any modifier files!");
         }
     }
 }

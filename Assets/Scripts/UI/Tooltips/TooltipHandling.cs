@@ -10,20 +10,43 @@ public class TooltipHandling : MonoBehaviour {
     public float downwardsMargin = 20f;
     public float rightwardsMargin = 0f;
     public GameObject textBox;
+    private List<GameObject> newTextBoxes = new List<GameObject>();
 
     void Start()
     {
         Close();
     }
 
-    public void Open() {
+    public void Open(List<string> messages)
+    {
         gameObject.GetComponent<TooltipLocation>().SetLocation();
         CheckEdges();
         gameObject.GetComponent<TooltipLocation>().SetLocation();
         gameObject.SetActive(true);
         isOpen = true;
+        foreach (string t in messages)
+        {
+            GameObject newText = Instantiate(textBox) as GameObject;
+            newText.transform.SetParent(textBox.transform.parent);
+            newText.transform.localScale = textBox.transform.localScale;
+            newText.GetComponent<Text>().text = t;
+            newText.SetActive(true);
+            newTextBoxes.Add(newText);
+        }
     }
-    
+
+    public void Close()
+    {
+        foreach (GameObject box in newTextBoxes)
+        {
+            Destroy(box);
+        }
+        gameObject.GetComponent<TooltipLocation>().invertedHeight = false;
+        gameObject.GetComponent<TooltipLocation>().invertedWidth = false;
+        gameObject.SetActive(false);
+        isOpen = false;
+        gameObject.GetComponent<TooltipLocation>().SetLocation();
+    }
 
     void CheckEdges()
     {
@@ -46,14 +69,5 @@ public class TooltipHandling : MonoBehaviour {
         {
             gameObject.GetComponent<TooltipLocation>().invertedWidth = true;
         }
-    }
-
-    public void Close()
-    {
-        gameObject.GetComponent<TooltipLocation>().invertedHeight = false;
-        gameObject.GetComponent<TooltipLocation>().invertedWidth = false;
-        gameObject.SetActive(false);
-        isOpen = false;
-        gameObject.GetComponent<TooltipLocation>().SetLocation();
     }
 }
